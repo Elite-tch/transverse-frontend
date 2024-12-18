@@ -1,4 +1,4 @@
-import Faqs from "./FaqCard"
+import Faqs from "../components/FaqCard"
 
 function page() {
   return (
