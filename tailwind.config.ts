@@ -12,7 +12,11 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         "Header-text": "rgba(97, 39, 139, 1)",
-        "paragraph-text":"#666666",
+        "paragraph-text": "#666666",
+      },
+      fontFamily: {
+        krona: ["Krona One", "serif"],
+        raleway: ["Raleway", "serif"],
       },
     },
   },
