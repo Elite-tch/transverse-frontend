@@ -38,7 +38,7 @@ const allTestimonials: Testimonial[] = [
   },
   {
     id: 2,
-    text: "I just want to say thank you to whoever invented Transverse Pay. That person had fashion designers at heart, Weldone!",
+    text: "I just want to say thank you to the team behind Transverse Pay. That person had fashion designers at heart, Weldone!",
     author: "Esther Ogah",
   },
   {
