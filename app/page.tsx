@@ -1,61 +1,74 @@
 "use client";
 
-import { VerificationLevel, IDKitWidget, useIDKit } from "@worldcoin/idkit";
-import type { ISuccessResult } from "@worldcoin/idkit";
-import { verify } from "./actions/verify/verify";
+import Navbar from "./components/Navbar";
+import HeroSection from "./components/Header";
+import Features from "./components/features";
+import Faqs from "./components/FaqCard";
+import Testimonials from "./components/Testimonials";
+import Footer from "./components/Footer";
+
+import { Krona_One } from "next/font/google";
+
+const krona = Krona_One({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export default function Home() {
-  const app_id = process.env.NEXT_PUBLIC_WLD_APP_ID as `app_${string}`;
-  const action = process.env.NEXT_PUBLIC_WLD_ACTION;
 
-  if (!app_id) {
-    throw new Error("app_id is not set in environment variables!");
-  }
-  if (!action) {
-    throw new Error("action is not set in environment variables!");
-  }
-
-  const { setOpen } = useIDKit();
-
-  const onSuccess = (result: ISuccessResult) => {
-    // This is where you should perform frontend actions once a user has been verified, such as redirecting to a new page
-    window.alert(
-      "Successfully verified with World ID! Your nullifier hash is: " +
-        result.nullifier_hash
-    );
-  };
-
-  const handleProof = async (result: ISuccessResult) => {
-    console.log(
-      "Proof received from IDKit, sending to backend:\n",
-      JSON.stringify(result)
-    ); // Log the proof from IDKit to the console for visibility
-    const data = await verify(result);
-    if (data.success) {
-      console.log("Successful response from backend:\n", JSON.stringify(data)); // Log the response from our backend for visibility
-    } else {
-      throw new Error(`Verification failed: ${data.detail}`);
-    }
-  };
 
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center align-middle h-screen">
-        <p className="text-2xl mb-5">World ID Cloud Template</p>
-        <IDKitWidget
-          action={action}
-          app_id={app_id}
-          onSuccess={onSuccess}
-          handleVerify={handleProof}
-          verification_level={VerificationLevel.Orb} // Change this to VerificationLevel.Device to accept Orb- and Device-verified users
-        />
-        <button
-          className="border border-black rounded-md"
-          onClick={() => setOpen(true)}
-        >
-          <div className="mx-3 my-1">Verify with World ID</div>
-        </button>
+    <div className="py-4 px-8 flex flex-col items-center">
+      <Navbar />
+      <HeroSection />
+      <Features />
+      <Testimonials />
+      <div className="flex flex-col gap-2  w-[85%] bg-[url('/faq-mesh.svg')] bg-cover h-fit ">
+        <div className="flex flex-col gap-1 md:gap-2  h-full  w-full items-center justify-center">
+          <h4 className={`text-primary text-[30px] ${krona.className}`}>
+            FAQs
+          </h4>
+          <p className="text-black text-[14px]">
+            Confused about something? Be sure to gain clarity from us.
+          </p>
+        </div>
+        <div className="flex flex-col items-center p-6 gap-4 mb-12">
+          <Faqs
+            title="What is Transverse Pay?"
+            description="Transverse Pay is a name of a person, animal, place or thing."
+          />
+          <Faqs
+            title="How to use Transverse Pay?"
+            description="Transverse Pay is a name of a person, animal, place or thing."
+          />
+
+          <Faqs
+            title="Is Transverse Pay right for you?"
+            description="Transverse Pay is a name of a person, animal, place or thing."
+          />
+
+          <Faqs
+            title="What makes Transverse Pay stand out from others?"
+            description="Transverse Pay is a name of a person, animal, place or thing."
+          />
+
+          <Faqs
+            title="Are my assets safe with Transverse Pay?"
+            description="Transverse Pay is a name of a person, animal, place or thing."
+          />
+
+          <Faqs
+            title="How fast is Transverse Pay?"
+            description="Transverse Pay is a name of a person, animal, place or thing."
+          />
+
+          <Faqs
+            title="Can I receive money from abroad with Transverse Pay?"
+            description="Transverse Pay is a name of a person, animal, place or thing."
+          />
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

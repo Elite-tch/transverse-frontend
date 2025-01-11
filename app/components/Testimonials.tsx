@@ -4,6 +4,13 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
+import { Krona_One } from "next/font/google";
+
+const krona = Krona_One({
+  weight: "400",
+  subsets: ["latin"]
+});
+
 // Interfaces for data structures
 interface Testimonial {
   id: number;
@@ -86,7 +93,7 @@ const TestimonialContent: React.FC<TestimonialContentProps> = ({
   text,
   author,
 }) => (
-  <div className="w-[350px] h-[112px] text-center mt-20 text-white font-raleway font-bold text-sm">
+  <div className="w-[350px] h-[112px] text-center mt-20 text-white font-raleway font-medium text-[14px]">
     <p>{text}</p>
     <p className="text-center mt-4">-{author}</p>
   </div>
@@ -112,14 +119,14 @@ export default function Testimonials() {
   };
 
   return (
-    <div className="bg-white min-h-screen flex justify-center p-[117px]">
-      <div className="flex flex-col items-center gap-8 w-[1200px] h-[536px]">
+    <div className={`bg-white h-fit my-4 flex justify-center py-8 `}>
+      <div className="flex flex-col items-center gap-8 w-[1200px] h-fit">
         {/* Header Section */}
-        <div className="mt-3 flex flex-col gap-2 items-center">
-          <h1 className="font-krona text-center text-[#61278B] text-3xl leading-[37.5px]">
+        <div className={`mt-3 flex flex-col gap-2 items-center  ${krona.className} `}>
+          <h1 className="font-krona text-center text-[#61278B] text-[30px] leading-[37.5px]">
             Testimonials
           </h1>
-          <p className="font-raleway text-center text-black font-normal w-[465px] text-sm leading-[15px] mt-2">
+          <p className="font-raleway text-center text-black font-normal w-[465px] text-[14px] leading-[15px] mt-2">
             So many positive feedback from different people using Transaverse
             Pay all over the world. Wanna be part of the positivity? Hop along.
           </p>
@@ -127,17 +134,14 @@ export default function Testimonials() {
 
         {/* Main Testimonial Section */}
         <div
-          className="w-[978px] h-[404px] flex flex-row justify-between items-center relative bg-cover bg-center"
-          style={{ backgroundImage: `url('/Images/Hero.png')` }}
+          className="w-[978px] h-[404px] flex flex-row justify-between items-center relative bg-cover bg-center bg-gradient-to-br from-[#4F0E7D] to-[#4f0e7d] rounded-[46.74px]"
         >
           {/* Left Group Image */}
           <div className="ml-5 relative w-[156px] h-[165px]">
             <Image
-              src="/Images/group.png"
+              src="/testimonial-image1.svg"
               alt="Group of people"
               layout="fill"
-              objectFit="contain"
-              priority
             />
           </div>
 
@@ -146,7 +150,7 @@ export default function Testimonials() {
             <div className="relative flex flex-row gap-2">
               <div className="ml-[66px] relative mt-12">
                 <Image
-                  src="/Images/left1.png"
+                  src="/left-quotation.svg"
                   alt="Left quotation mark"
                   width={58}
                   height={78}
@@ -186,7 +190,7 @@ export default function Testimonials() {
 
               <div className="mr-[66px] mt-[133px] relative">
                 <Image
-                  src="/Images/right.png"
+                  src="/right-quotation.svg"
                   alt="Right quotation mark"
                   width={58}
                   height={78}
@@ -198,10 +202,10 @@ export default function Testimonials() {
           {/* Right Group Image */}
           <div className="mr-5 mt-[-40px] relative w-[156px] h-[165px]">
             <Image
-              src="/Images/group.png"
+              src="/testimonial-image1.svg"
               alt="Group of people"
               layout="fill"
-              objectFit="contain"
+        
             />
           </div>
         </div>

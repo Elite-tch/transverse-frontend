@@ -11,8 +11,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        "Header-text": "rgba(97, 39, 139, 1)",
-        "paragraph-text":"#666666",
+        primary: "#61278B",
       },
     },
   },
