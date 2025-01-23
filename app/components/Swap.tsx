@@ -55,6 +55,13 @@ export default function Swap() {
     }, 3000);
   };
 
+  const handleInputSwap = () => {
+    setFromAmount(toAmount);
+    setToAmount(fromAmount);
+    setFromCoin(toCoin);
+    setToCoin(fromCoin);
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#e1e1e1]">
       <div className="bg-white p-12 rounded-[40px] shadow-lg max-w-xl w-full">
@@ -84,7 +91,7 @@ export default function Swap() {
                   onClick={() => setIsSuccess(false)}
                   className={`mt-6 bg-[#61278B] text-white py-4 rounded-2xl text-md w-full ${krona.className}`}
                 >
-                 Go to Dashboard
+                  Go to Dashboard
                 </button>
               </div>
             </div>
@@ -137,8 +144,8 @@ export default function Swap() {
             </div>
 
             <div className="flex justify-center my-4">
-              <span className="text-purple-500 text-2xl">
-                <ArrowDownUp className="text-[#61278B]" />
+              <span className="text-2xl cursor-pointer">
+                <ArrowDownUp className="text-[#61278B]"  onClick={handleInputSwap} />
               </span>
             </div>
 
