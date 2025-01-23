@@ -41,6 +41,7 @@ export default function Swap() {
   };
 
   const handleCoinSelect = (coin: CryptoCoin) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     selectingCoinFor === "from" ? setFromCoin(coin) : setToCoin(coin);
     setShowModal(false);
   };
