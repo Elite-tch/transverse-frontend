@@ -19,7 +19,7 @@ const config: Config = {
       backgroundColor: {
         'custom-green': 'rgba(224, 240, 228, 1)',
         'input-bg': 'rgba(236, 209, 255, 1)',
-        lightpurple:' rgba(252, 248, 255, 1)'
+        lightpurple:' rgba(252, 248, 255, 1)',
         'dark-blue': '#3642CA',
         'border-line':'#F7ECFF',
 
