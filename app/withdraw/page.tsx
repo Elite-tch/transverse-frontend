@@ -1,5 +1,5 @@
 import React from 'react'
-import WithdrawModal from '../components/WithdrawFlow/WithdrawModal'
+import WithdrawModal from '../components/WithdrawModal'
 
 export default function Withdraw() {
   return (
