@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.animated.fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -25,6 +38,7 @@ body {
     text-wrap: balance;
   }
 } */
+
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
@@ -99,3 +113,14 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 8px;
   background-color: #555;
 }
+
+@layer utilities {
+
+  .no-spin::-webkit-outer-spin-button,
+  .no-spin::-webkit-inner-spin-button {
+    @apply appearance-none m-0;
+  }
+
+  .no-spin[type='number'] {
+    @apply appearance-none;
+  }
