@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 
 import { Krona_One } from "next/font/google";
 import ConfirmChain from "./components/send-modals/ConfirmChain";
+import ConfirmAmount from "./components/send-modals/ConfirmAmount";
 
 const krona = Krona_One({
   weight: "400",
@@ -70,7 +71,8 @@ export default function Home() {
         </div>
       </div>
       <Footer />
-      <ConfirmChain/>
+      {/* <ConfirmChain/> */}
+      <ConfirmAmount/>
     </div>
   );
 }
