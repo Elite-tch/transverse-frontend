@@ -6,8 +6,8 @@ import Features from "./components/features";
 import Faqs from "./components/FaqCard";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
-
 import { Krona_One } from "next/font/google";
+
 
 const krona = Krona_One({
   weight: "400",
