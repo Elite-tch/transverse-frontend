@@ -80,10 +80,11 @@ const Deposit = () => {
             {/* Modal for Top Up Details */}
             {isModalOpen && (
                 <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 ">
-                    <div className="flex flex-col py-[6%] md:py-0 justify-center bg-white shadow md:w-[50%] mx-auto rounded-[40px] w-[90%] md:my-8 ">
-                    <button 
+                    <div className="flex flex-col py-[6%] md:py-0 md:pb-[2%] md:pt-[0%] pb-[5%] pt-[2%] justify-center bg-white shadow md:w-[50%] mx-auto rounded-[40px] w-[90%] md:my-8 ">
+                  <div className="block   ">
+                  <button 
                             onClick={() => setIsConfirmationModalOpen(false)} 
-                            className="absolute top-[5%] left-[3%] md:left-[27%] md:top-[0%] text-gray-900 hover:text-gray-800 text-[30px]"
+                            className=" text-gray-900 hover:text-gray-800 text-[30px]"
                         >
                               <svg
                              onClick={() => setIsModalOpen(false)} 
@@ -103,20 +104,22 @@ const Deposit = () => {
                             </svg>
                         
                         </button> 
-                         
 
-                        <div className="md:pb-[5%] md:pt-[3%] pb-[5%] pt-[8%]">
+                        <div className="">
                         <h2 className={`h-[43px] leading-[32.87px]  flex justify-center mx-auto text-[28px] font-[600] ${krona.className}`}>Top Up Money</h2>    
             <div className="flex justify-center gap-3 w-[29%] md:w-[26%] mx-auto flex-col items-start ">
                     <p className="font-[500] text-sm h-[14px] text-custom-gray ">Total Balance </p>
                     <h4 className="font-[500] text-lg flex items-center  gap-9">$11,485.30 <span className="rounded font-[500] text-sm leading-[13.23px] px-2 py-1 text-btntext bg-custom-green">+5.3%</span> </h4>
                 </div>
-
+                </div>
+                  </div>
+                       
+                       
                             <div className="flex justify-center gap-2 mt-8 md:w-[90%] mx-auto flex-col items-start ">
                                 <div className="flex flex-col gap-2 w-[90%] mx-auto">
                                     <label className="text-lg font-bold ">Select Wallet you want to Top Up from</label>
                                     <div
-                                        className="relative w-[100%] mx-auto border border-gray-300 rounded-lg p-4 flex items-center justify-between cursor-pointer"
+                                        className="relative w-[100%] mx-auto border border-gray-300 rounded-lg p-3 flex items-center justify-between cursor-pointer"
                                         onClick={() => setShowWalletDropdown(!showWalletDropdown)}
                                     >
                                         <div className={`flex-1 font-medium ${selectedWallet ? "text-black" : "text-custom-gray "}`}>
@@ -156,7 +159,7 @@ const Deposit = () => {
                                 <div className="flex flex-col gap-2 w-[90%] mx-auto">
                                     <label className="text-lg font-bold">Select Token</label>
                                     <div
-                                        className="relative w-[100%] mx-auto border border-gray-300 rounded-lg p-4 flex items-center justify-between cursor-pointer"
+                                        className="relative w-[100%] mx-auto border border-gray-300 rounded-lg p-3 flex items-center justify-between cursor-pointer"
                                         onClick={() => setShowTokenDropdown(!showTokenDropdown)}
                                     >
                                         <div className={`flex-1 font-medium ${selectedToken ? "text-black" : "text-custom-gray "}`}>
@@ -194,7 +197,7 @@ const Deposit = () => {
 
                                 <div className="flex justify-start flex-col gap-2 w-[90%] mx-auto">
                                     <label className="text-lg font-bold">Enter Amount</label>
-                                    <div className="flex gap-2 items-center border border-gray-300 rounded-lg p-4 ">
+                                    <div className="flex gap-2 items-center border border-gray-300 rounded-lg p-3 ">
                                         <input type="text" className="outline-none bg-transparent w-full " />
                                         <h3 className="bg-input-bg text-sm text-primary font-[400] h-[24px] w-[54px] flex items-center justify-center rounded-[6px]">MAX</h3>
                                     </div>
@@ -207,14 +210,18 @@ const Deposit = () => {
                         </div>
 
                       
-                    </div>
+                    
                 </div>
             )}
 
             {/* Confirmation Modal */}
             {isConfirmationModalOpen && (
-                <div className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 ${krona.className}`}>
-                    <div className="bg-white rounded-[40px] w-[90%] md:w-[50%] h-[645px] md:h-[574px] p-5 md:px-[5%] shadow-lg flex flex-col items-center justify-center gap-5">
+                <div className={`fixed inset-0 flex items-center justify-center   bg-black bg-opacity-50 ${krona.className}`}>
+                   <div className="bg-white rounded-[40px] w-[90%] md:w-[50%] h-[652px] md:h-[576px]  shadow-lg ">
+                    <svg  onClick={() => setIsConfirmationModalOpen(false)}  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-x mx-10 mt-8 "><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        <div className="flex flex-col items-center justify-center gap-5 p-5 md:px-[5%] md:pt-[10%]">
+
+        
                         <h2 className="text-2xl font text-center">Congratulations <span className="text-[32px] text-primary"> Prof 🥳</span></h2>
                         <p className="font-[400] text-[20px] text-center">You have successfully Topped Up your account
                         <span className="font-[500]">-Prof Isaac</span> with $500 ETH.</p>
@@ -223,12 +230,8 @@ const Deposit = () => {
                             <button className="border-primary border bg-lightpurple text-primary text-[14px] w-[240px] h-[60px] rounded-[20px]" onClick={() => setIsConfirmationModalOpen(false)}>Top Up Again</button>
                             <button className="text-white bg-primary text-[14px] w-[240px] h-[60px] rounded-[20px]" onClick={() => setIsConfirmationModalOpen(false)}>Go to Dashboard</button>
                         </div>
-                        <button 
-                            onClick={() => setIsConfirmationModalOpen(false)} 
-                            className="absolute top-[5%] left-[15%] md:left-[30%] md:top-[7%] text-gray-900 hover:text-gray-800 text-[30px]"
-                        >
-                            &times; {/* Close button (X) */}
-                        </button>
+                       
+                    </div>
                     </div>
                 </div>
             )}
