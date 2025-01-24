@@ -8,6 +8,7 @@ import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 
 import { Krona_One } from "next/font/google";
+import ConfirmChain from "./components/send-modals/ConfirmChain";
 
 const krona = Krona_One({
   weight: "400",
@@ -69,6 +70,7 @@ export default function Home() {
         </div>
       </div>
       <Footer />
+      <ConfirmChain/>
     </div>
   );
 }
